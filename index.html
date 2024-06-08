@@ -1,0 +1,81 @@
+<html>
+<head>    
+    <title>Temperature Conversion app By Anurag Gaiwal</title>
+    <style>
+        *{
+          font-size:50px
+        }
+
+        body {
+          background-color: lightblue;
+          font-family: Arial, sans-serif; 
+        }
+
+        h1 {
+          font-size: 2em; 
+          margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+          padding: 10px;
+          border: 1px solid #ccc;
+          margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+          background-color: #4CAF50; 
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer; 
+        }
+
+        input[type="checkbox"]{
+            width:2%; 
+            height:0.5em;
+        }
+        
+        #msg {    
+          color: #333; 
+        }
+
+        
+        .container{
+            border: 2px solid black;
+            width: 50%;
+        }
+
+    </style>
+</head>
+
+<body>
+<center>
+    <h1>Temperature Convertor App</h1>
+    <form onsubmit="show()">
+        <label for="cel">Temperature in Celsius: </label>        
+        <input type="number" step="any" placeholder="Enter temperature in Celsius" id="cel"/>
+        <br/> <br/>
+        <label for="fah">Temperature in Fahrenheit: </label>        
+        <input type="number" step="any" placeholder="Enter Temperature in Fahrenheit" id="fah"/>
+        <br/> <br/>
+    </form>
+    <script>
+        let cel = document.getElementById("cel");            
+        let fah = document.getElementById("fah");
+        
+        cel.addEventListener("input", ()=>{
+            let c = parseFloat(cel.value);
+            let f = (c * 9/5) + 32;
+            fah.value = f.toFixed(2);
+        });
+            
+        fah.addEventListener("input", ()=>{
+            let f = parseFloat(fah.value);
+            let c = (f - 32) * 5/9;
+            cel.value = c.toFixed(2);
+        });
+    </script>
+</center>
+</body>
+</html>
